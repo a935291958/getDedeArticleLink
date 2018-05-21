@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <include file="commonHead"/>
+</head>
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+
+
+    <include file="commonTop"/>
+
+    <div class="layui-side layui-bg-black">
+        <div class="layui-side-scroll">
+            <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+            <include file="commonLeft"/>
+        </div>
+    </div>
+    <div class="layui-body">
+        <form class="layui-form"  method="post" id="" enctype="multipart/form-data">
+            <div class="layui-form-item"  style="margin-top:50px;">
+                <label class="layui-form-label">站点域名</label>
+                <div class="layui-input-block">
+                    <input class="layui-input"  value="http://m.gzch120.com"   lay-verify="required"  name="host" type="text">
+                </div>
+            </div>
+
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">数据库</label>
+                <div class="layui-input-block">
+                    <select name="database"  lay-filter="database" lay-verify="required">
+                        <option value="">请选择数据库</option>
+                        <volist name="dbListNew" id="vo">
+                            <option value="{$vo}">{$vo}</option>
+                        </volist>
+                    </select>
+                    <a href="javascript:void(0);"  id="showTables" style="color: #01AAED;display: none;">查看数据表</a>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">表前缀</label>
+                <div class="layui-input-block">
+                    <input class="layui-input" id="prefix"  lay-verify="required"  name="prefix" type="text">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <button class="layui-btn" lay-submit lay-filter="formSub">立即提交</button>
+                    <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="layui-footer">
+        <!-- 底部固定区域 -->
+        By Cai.技术支持：935291958@qq.com
+    </div>
+</div>
+
+
+<script src="__PUBLIC__/common/layui/layuiAll.js"></script>
+<script src="__PUBLIC__/dedelink/js/getlink.js"></script>
+
+
+
+</body>
+
+</html>

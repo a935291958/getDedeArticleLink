@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <include file="commonHead"/>
+</head>
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+
+
+    <include file="commonTop"/>
+
+    <div class="layui-side layui-bg-black">
+        <div class="layui-side-scroll">
+            <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+            <include file="commonLeft"/>
+        </div>
+    </div>
+    <div class="layui-body">
+        <form class="layui-form"  method="post" id="formBox" enctype="multipart/form-data">
+
+            <div class="layui-form-item"   style="margin-top:50px;">
+                <label class="layui-form-label">文件类型</label>
+                <div class="layui-input-block">
+                    <!--<input type="radio" lay-filter="fileType" name="fileType" value="up" title="在线上传" >-->
+                    <input type="radio" lay-filter="fileType" name="fileType" value="server" title="线上文件" checked>
+                </div>
+            </div>
+
+
+            <div id="fMain" style="display: none">
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">分隔符</label>
+                <div class="layui-input-block">
+                    <input class="layui-input"  value=","  name="separator" type="text">
+                </div>
+            </div>
+
+            <div class="layui-form-item" >
+                <label class="layui-form-label">数据栏</label>
+                <div class="layui-input-block">
+                    <input class="layui-input" lay-verify="number"  value="3" name="column" type="text">
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">选择文件</label>
+                <div class="layui-input-block">
+                    <button type="button" class="layui-btn" id="upFile">
+                        <i class="layui-icon">&#xe67c;</i>点击上传
+                    </button>
+                    <input class="layui-input"  value="" id="filePath"  name="filePath" type="hidden">
+                    <a class="layui-word-aux"  id="filePathHref"></a>
+                </div>
+            </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <button class="layui-btn" lay-submit lay-filter="formSub">生成最新</button>
+                    <!--<button type="reset" class="layui-btn layui-btn-primary">重置</button>-->
+                </div>
+            </div>
+            <div class="layui-form-item" id="downResBox" style="display: none;">
+                <label class="layui-form-label">文件下载</label>
+                <div class="layui-input-block">
+                    <button type="button" class="layui-btn" id="downRes">
+                        <i class="layui-icon">&#xe601;</i>
+                    </button>
+
+                </div>
+
+            </div>
+        </form>
+    </div>
+
+    <div class="layui-footer">
+        <!-- 底部固定区域 -->
+        By Cai.技术支持：935291958@qq.com
+    </div>
+</div>
+
+
+<script src="__PUBLIC__/common/layui/layuiAll.js"></script>
+<script src="__PUBLIC__/dedelink/js/validation.js"></script>
+
+
+
+</body>
+
+</html>

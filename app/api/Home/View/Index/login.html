@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>管理登录</title>
+
+
+    <import type='css' file="wechatForm.wxAdmin.css.index"/>
+    <!--<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>-->
+    <script type="text/javascript" charset="utf-8" src="/Public/common/js/jquery-1.11.3.min.js"></script>
+
+</head>
+<body>
+
+<div class="main">
+    <div class="login-form">
+        <h1>管理登录</h1>
+        <div class="head"><img src="/Public/wechatForm/wxAdmin/images/user.png" alt=""/></div>
+        <form method="post"  id="loginForm">
+            <input id="user" name="user" autofocus="true" required="required" placeholder="username" type="text" class="text"/>
+            <input id="pass" name="pass" required="required" type="password" value=""/>
+            <div class="submit"><input type="submit" value="登录"></div>
+        </form>
+    </div>
+</div>
+
+</body>
+<script>
+function c(o) {
+    console.log(o)
+}
+    $('#loginForm').submit(function () {
+        $user = $("#user").val();
+        $pass = $("#pass").val();
+        if(!$user || !$pass){
+            alert('请填完整');
+            return false;
+        }
+        $.ajax({
+            url:'__ACTION__',
+            data:{user:$user,pass:$pass},
+            type:'post',
+            dataType:'json',
+            success:function (res) {
+                //c(res)
+                if(res.res === false){
+                    alert(res.msg);
+                    return false;
+                }else if(res.res === true){
+                    window.location.href = '__APP__/Home';
+                }else{
+                    alert('未知错误');
+                }
+
+            },
+            error:function () {
+                alert('请求失败');
+            }
+        })
+        return false;
+    })
+</script>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <include file="commonHead"/>
+</head>
+<body class="layui-layout-body">
+<table class="layui-table" id="tableMain">
+    <colgroup>
+        <col>
+    </colgroup>
+    <thead>
+    <tr id="database">
+        <th>{title}</th>
+    </tr>
+
+    </thead>
+    <tbody >
+
+    </tbody>
+</table>
+</body>
+<script>
+    console.log($tabData = JSON.parse(localStorage.getItem('getTab')));
+    $('#database').html('<th><b>数据库：' + $tabData['database'] + '</b></th>');
+    $list = $tabData['list'];
+    $listHtml = '';
+    for ($i = 0; $i < $list.length; $i++) {
+        $listHtml += '<tr><td>' + $list[$i] + '</td></tr>';
+    }
+    $('#tableMain tbody').html($listHtml);
+</script>
+</html>
